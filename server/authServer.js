@@ -11,7 +11,6 @@ let users = database.users;
 const cors = require("cors");
 const bcrypt = require("bcrypt");
 app.use(cors());
-const HOST = "192.168.32.103";
 
 const generateTokens = (payload) => {
   const { id, email } = payload;
@@ -121,6 +120,4 @@ app.delete("/logout", verifyToken, (req, res) => {
   res.sendStatus(204);
 });
 
-app.listen(5000, HOST, () =>
-  console.log(`Server auth started on port ${HOST} 5000`)
-);
+app.listen(5000, () => console.log(`Server auth started on port 5000`));

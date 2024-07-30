@@ -10,12 +10,10 @@ app.use(express.json());
 const cors = require("cors");
 app.use(cors());
 app.use("/api", jsonServer.defaults(), jsonServer.router("db.json"));
-const HOST = "192.168.32.103";
+
 const PORT = 4001;
 app.get("/api/campaigns", verifyToken, (req, res) => {
   res.json(database.campaigns);
 });
 
-app.listen(PORT, HOST, () =>
-  console.log("Server started on port" + PORT + HOST)
-);
+app.listen(PORT, () => console.log("Server started on port" + PORT));
